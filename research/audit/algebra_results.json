@@ -1,0 +1,322 @@
+{
+  "scope": "SymPy 精确符号恒等式核查；不是 Lean 内核证明、PDE 求解或激波证据。",
+  "assumptions": [
+    "mu>0, c>0; 稿件另要求 gamma>1",
+    "过阻尼参数化还需 0<delta<mu",
+    "形式展开系数光滑，水平平均按 2pi 周期归一化"
+  ],
+  "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Python314\\python.exe",
+  "sympy_version": "1.14.0",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "audit_script_sha256": "097dcccb33e33eaad0bfc83eaf24b36c6f0b62b5c6da15f1e4ea1b764c8ca85c",
+  "source_sha256": {
+    "analysis.tex": "4011579481b8a39a1c4d0dffbef194054e39ac4e707d5c936d6b4e5dcb281d23",
+    "program.tex": "20c8002a5c5dbfe410eff627819857ba31993ff5050279d6ca7941e7255f38f6",
+    "verify_expansion.py": "8140725d46988ceff969302ced7365674e86245bd01e8ef2ca591df0ac4c89f7"
+  },
+  "check_count": 58,
+  "passed_count": 58,
+  "checks": {
+    "generic_mass_order_1": {
+      "passed": true,
+      "residual": "0"
+    },
+    "generic_mass_order_2": {
+      "passed": true,
+      "residual": "0"
+    },
+    "generic_primitive_order_1_0": {
+      "passed": true,
+      "residual": "0"
+    },
+    "generic_primitive_order_2_0": {
+      "passed": true,
+      "residual": "0"
+    },
+    "conservative_primitive_identity_order_1_0": {
+      "passed": true,
+      "residual": "0"
+    },
+    "conservative_primitive_identity_order_2_0": {
+      "passed": true,
+      "residual": "0"
+    },
+    "generic_primitive_order_1_1": {
+      "passed": true,
+      "residual": "0"
+    },
+    "generic_primitive_order_2_1": {
+      "passed": true,
+      "residual": "0"
+    },
+    "conservative_primitive_identity_order_1_1": {
+      "passed": true,
+      "residual": "0"
+    },
+    "conservative_primitive_identity_order_2_1": {
+      "passed": true,
+      "residual": "0"
+    },
+    "full_field_linear_mass": {
+      "passed": true,
+      "residual": "0"
+    },
+    "full_field_linear_momentum_0": {
+      "passed": true,
+      "residual": "0"
+    },
+    "full_field_linear_momentum_1": {
+      "passed": true,
+      "residual": "0"
+    },
+    "full_field_second_mass": {
+      "passed": true,
+      "residual": "0"
+    },
+    "full_field_second_momentum_0": {
+      "passed": true,
+      "residual": "0"
+    },
+    "full_field_second_momentum_1": {
+      "passed": true,
+      "residual": "0"
+    },
+    "initial_density_second_time_derivative": {
+      "passed": true,
+      "residual": "0"
+    },
+    "approximate_mass_order_3": {
+      "passed": true,
+      "residual": "0"
+    },
+    "approximate_mass_order_4": {
+      "passed": true,
+      "residual": "0"
+    },
+    "mean_cubic_mass_vanishes": {
+      "passed": true,
+      "residual": "0"
+    },
+    "approximate_velocity_order_3_0": {
+      "passed": true,
+      "residual": "0"
+    },
+    "approximate_velocity_order_4_0": {
+      "passed": true,
+      "residual": "0"
+    },
+    "mean_cubic_velocity_residual_0_vanishes": {
+      "passed": true,
+      "residual": "0"
+    },
+    "approximate_velocity_order_3_1": {
+      "passed": true,
+      "residual": "0"
+    },
+    "approximate_velocity_order_4_1": {
+      "passed": true,
+      "residual": "0"
+    },
+    "mean_cubic_velocity_residual_1_vanishes": {
+      "passed": true,
+      "residual": "0"
+    },
+    "mean_pressure_order_4": {
+      "passed": true,
+      "residual": "0"
+    },
+    "mean_pressure_order_4_has_no_vertical_force": {
+      "passed": true,
+      "residual": "0"
+    },
+    "mean_reynolds_order_2": {
+      "passed": true,
+      "residual": "0"
+    },
+    "mean_horizontal_quadratic_flux": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_underdamped_density_initial": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_underdamped_velocity_initial": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_underdamped_first_order_system": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_critical_density_initial": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_critical_velocity_initial": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_critical_first_order_system": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_overdamped_density_initial": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_overdamped_velocity_initial": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_overdamped_first_order_system": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_underdamped_critical_limit": {
+      "passed": true,
+      "residual": "0"
+    },
+    "horizontal_overdamped_critical_limit": {
+      "passed": true,
+      "residual": "0"
+    },
+    "scattering_integral_plus": {
+      "passed": true,
+      "residual": "0"
+    },
+    "scattering_fourier_mode_2_plus": {
+      "passed": true,
+      "residual": "0"
+    },
+    "scattering_integral_minus": {
+      "passed": true,
+      "residual": "0"
+    },
+    "scattering_fourier_mode_2_minus": {
+      "passed": true,
+      "residual": "0"
+    },
+    "riemann_characteristic_plus": {
+      "passed": true,
+      "residual": "0"
+    },
+    "riemann_characteristic_minus": {
+      "passed": true,
+      "residual": "0"
+    },
+    "envelope_derivative_amplitude_squared": {
+      "passed": true,
+      "residual": "0"
+    },
+    "formal_burgers_shock_time": {
+      "passed": true,
+      "residual": "0"
+    },
+    "cancellation_control_divergence_free": {
+      "passed": true,
+      "residual": "0"
+    },
+    "cancellation_control_horizontal_mean_0": {
+      "passed": true,
+      "residual": "0"
+    },
+    "cancellation_control_horizontal_mean_1": {
+      "passed": true,
+      "residual": "0"
+    },
+    "cancellation_control_nonzero_initial_force": {
+      "passed": true,
+      "residual": "0"
+    },
+    "cancellation_control_heat_forcing": {
+      "passed": true,
+      "residual": "0"
+    },
+    "cancellation_control_scattering_multiplier_plus": {
+      "passed": true,
+      "residual": "0"
+    },
+    "cancellation_control_scattering_integral_plus": {
+      "passed": true,
+      "residual": "0"
+    },
+    "cancellation_control_scattering_multiplier_minus": {
+      "passed": true,
+      "residual": "0"
+    },
+    "cancellation_control_scattering_integral_minus": {
+      "passed": true,
+      "residual": "0"
+    }
+  },
+  "original_script_rerun": {
+    "symbolic_checks": {
+      "initial_divergence": true,
+      "horizontal_force": true,
+      "vertical_force": true,
+      "mass_ode": true,
+      "momentum_ode": true,
+      "initial_density": true,
+      "initial_velocity": true,
+      "noncancellation": true,
+      "right_wave": true,
+      "left_wave": true,
+      "underdamped": true,
+      "critical": true,
+      "overdamped": true
+    },
+    "independent_ode_checks": [
+      {
+        "mu": 1,
+        "c": 1,
+        "step": 0.001,
+        "end_time": 8.0,
+        "max_absolute_error": 3.6221720067786123e-13
+      },
+      {
+        "mu": 0.2,
+        "c": 1,
+        "step": 0.001,
+        "end_time": 8.0,
+        "max_absolute_error": 5.093217514406945e-13
+      },
+      {
+        "mu": 3,
+        "c": 1,
+        "step": 0.001,
+        "end_time": 8.0,
+        "max_absolute_error": 1.4976648393671965e-13
+      },
+      {
+        "mu": 1,
+        "c": 2,
+        "step": 0.001,
+        "end_time": 8.0,
+        "max_absolute_error": 7.408277984122247e-12
+      }
+    ]
+  },
+  "negative_control": {
+    "parameters": {
+      "mu": 1,
+      "c": 1
+    },
+    "W1": "sqrt(5)*sin(x)*sin(y) - sqrt(17)*sin(2*x)*cos(y) + sqrt(123)*sin(3*x)*sin(y)/3",
+    "W2": "2*sqrt(17)*sin(y)*cos(2*x) + sqrt(5)*cos(x)*cos(y) + sqrt(123)*cos(3*x)*cos(y)",
+    "F_initial": "30*sin(2*y)",
+    "F_at_time_s": "(5*exp(-2*s)/2 - 34*exp(-8*s) + 123*exp(-18*s)/2)*sin(2*y)",
+    "Q_plus": "0",
+    "Q_minus": "0",
+    "interpretation": "验证 analysis.tex 第300行的一般数据相位抵消警告；不反驳稿件指定单模的非抵消结论。"
+  },
+  "not_verified": [
+    "局部适定性及延拓",
+    "Sobolev 能量和差值估计",
+    "对数时间误差闭合",
+    "epsilon^-2 时间调制",
+    "原二维 PDE 激波或寿命渐近",
+    "一般无限 Fourier 级数的交换求和/积分及范数连续性"
+  ]
+}
