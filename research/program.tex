@@ -3,23 +3,30 @@
 
 \begin{proposition}[二阶声学交接与寿命下界]\label{prop:matching}
 固定 $A,\gamma,\mu>0$（$\gamma>1$）、整数 $m\ge6$ 和 $L>1/\mu$，令
-$t_\eps=L\log(1/\eps)$。对充分小的 $\eps>0$，给定测试初值的光滑解至少存在到 $t_\eps$，且 $1/2<\rho<3/2$。
+\[
+ t_\eps=L\log(1/\eps).
+\]
+其中，$m$ 是用于能量估计的空间导数阶数，$L$ 是与 $\eps$ 无关且大于 $1/\mu$ 的固定常数，$t_\eps$ 是水平振荡衰减后与声学近似进行比较的交接时间，$\log$ 是自然对数。
+对充分小的 $\eps>0$，给定测试初值的光滑解至少存在到 $t_\eps$，且 $1/2<\rho<3/2$。
 令 $(b,Z)$ 由 \eqref{eq:fullsecond} 定义。在 $0\le t\le t_\eps$ 上有
 \begin{equation}\label{eq:matchingerror}
  \norm{\rho-1-\eps^2b}_{H^m}
  +\norm{u-\eps e^{-\mu t}W-\eps^2Z}_{H^m}
  \le C\bigl(\eps^3+\eps^4t\bigr)e^{C\eps t}.
 \end{equation}
+其中，$H^m=H^m(\T^2)$ 是函数及其直到 $m$ 阶的所有弱空间导数均平方可积的 Sobolev 空间，$\norm{\cdot}_{H^m}$ 是相应范数；向量或多分量函数的范数按各分量范数的平方和开方计算。$C$ 是可随估计改变的正数，可依赖固定的 $A,\gamma,\mu,m,L$ 及测试轮廓，但不依赖 $\eps$ 和所述区间内的 $t$。下文 $O(\,\cdot\,)$ 表示所讨论范数至多为括号内量的固定常数倍，$o(\,\cdot\,)$ 表示该范数与括号内量之比在 $\eps\downarrow0$ 时趋于零。
 进而
 \begin{equation}\label{eq:handoff}
  \eps^{-2}(\rho-1,u)(t_\eps)
  -(B_\infty(t_\eps)\cos2y,\ 0,\ Q_\infty(t_\eps)\sin2y)
  \longrightarrow0 \quad\text{于 }H^m(\T^2).
 \end{equation}
+其中，$(\rho-1,u)$ 按 $(\rho-1,u_1,u_2)$ 的顺序组成三分量向量，右侧比较向量的中间分量 $0$ 表示没有领先水平速度；箭头表示当 $\eps\downarrow0$ 时，整个差值的 $H^m$ 范数趋于零。
 特别地，此时完整解的扰动大小为 $O(\eps^2)$，联合声学分量有非零的 $O(\eps^2)$ 下界。由重启局部能量估计，还得到某个 $c_*>0$ 使经典寿命
 \begin{equation}\label{eq:lowerlife}
  T_{\max}(\eps)\ge t_\eps+c_*\eps^{-2}.
 \end{equation}
+其中，$T_{\max}(\eps)$ 是振幅为 $\eps$ 的给定初值所对应经典解的最大存在时间，允许其为 $+\infty$；$c_*$ 是依赖固定参数和估计阶数、但不依赖 $\eps$ 的正寿命常数，与背景声速 $c$ 不同。
 这只是寿命下界，不是寿命渐近或有限时间爆破上界。
 \end{proposition}
 
@@ -29,6 +36,7 @@ $t_\eps=L\log(1/\eps)$。对充分小的 $\eps>0$，给定测试初值的光滑�
  q=\frac{2(c(\rho)-c)}{\gamma-1},\qquad
  c(\rho)=c+\frac{\gamma-1}{2}q.
 \]
+其中，$q$ 是相对于背景声速 $c$ 归一化的声速扰动，用来对称化双曲主部；它不是前文的二阶平均垂直速度系数 $q_m$。
 在正密度区间内，这是光滑可逆变换，且
 \begin{equation}\label{eq:symmetric}
  \begin{aligned}
@@ -36,11 +44,13 @@ $t_\eps=L\log(1/\eps)$。对充分小的 $\eps>0$，给定测试初值的光滑�
  u_t+u\cdot\nabla u+c(\rho)\nabla q&=\frac\mu{\rho(q)}\partial_x^2u.
  \end{aligned}
 \end{equation}
+其中，$\rho(q)$ 是由上述声速变量变换反解得到的密度，即 $\rho(q)=[1+(\gamma-1)q/(2c)]^{2/(\gamma-1)}$，$\mu/\rho(q)$ 是速度方程中的变系数水平扩散系数。
 双曲主部对称，扩散矩阵半正定。设 $E_m\simeq\norm{q,u}_{H^m}^2$，对充分小解可取与标准范数等价的能量，使
 \begin{equation}\label{eq:energyhigh}
  E_m'+c_\mu\norm{\partial_xu}_{H^m}^2
  \le C(E_m^{1/2}+E_m)E_m.
 \end{equation}
+其中，$E_m=E_m(t)$ 是控制 $(q,u)$ 的 $m$ 阶空间导数的能量，$E_m'$ 是其时间导数；$\simeq$ 表示存在两个与 $\eps,t$ 无关的正数给出双边比较，因而 $E_m$ 与 $\norm{q,u}_{H^m}^2$ 等价。$c_\mu>0$ 是吸收扩散交换子后保留的耗散系数，可依赖 $\mu$ 及密度的固定正上下界，$\norm{\partial_xu}_{H^m}^2$ 是受控的水平耗散量。
 核对该式的主要步骤如下。对称性消去线性声学交叉项；输运和可变声速项由 Sobolev 交换子估计控制。对 $a(q)=\mu/\rho(q)$，扩散交换子用
 \[
  \norm{[D^\alpha,a]\partial_x^2u}_{L^2}
@@ -48,19 +58,31 @@ $t_\eps=L\log(1/\eps)$。对充分小的 $\eps>0$，给定测试初值的光滑�
        +\norm{a-\mu}_{H^m}\norm{\partial_x^2u}_{L^\infty}\bigr),
  \quad |\alpha|\le m,
 \]
-其中第一项用水平耗散吸收；第二项利用 $H^m(\T^2)\hookrightarrow W^{2,\infty}$。主扩散项积分分部产生的 $a_x$ 项也由耗散及 $\norm{a_x}_{L^\infty}^2E_m$ 控制。不会由此要求 $\partial_yD^mu$ 的耗散。更高阶光滑性通过 tame 高阶估计延拓，其增长系数由已控制的低阶 $H^m$ 范数给出；不对每个高阶范数另取越来越小的 $\eps$ 阈值。
+其中，$\alpha=(\alpha_1,\alpha_2)$ 是非负整数多重指标，$|\alpha|=\alpha_1+\alpha_2$ 是总阶数，$D^\alpha=\partial_x^{\alpha_1}\partial_y^{\alpha_2}$ 是相应空间导数，$[D^\alpha,a]f=D^\alpha(af)-aD^\alpha f$ 是微分与乘法的交换子，$f$ 是任意足够光滑的待作用函数。这里 $a=a(q)$ 是扩散系数函数，不是前文密度展开的一阶系数 $a$；$L^2$ 是平方可积函数空间，$L^\infty$ 是本质有界函数空间，相关范数均取在 $\T^2$ 上。
+第一项用水平耗散吸收；第二项利用
+\[
+ H^m(\T^2)\hookrightarrow W^{2,\infty}(\T^2).
+\]
+其中，$W^{2,\infty}$ 是函数及其直到二阶的弱空间导数均本质有界的 Sobolev 空间，$\hookrightarrow$ 表示连续嵌入，即左侧范数控制右侧范数。主扩散项积分分部产生的 $a_x=\partial_xa(q)$ 项也由耗散及 $\norm{a_x}_{L^\infty}^2E_m$ 控制。不会由此要求 $\partial_yD^mu$ 的耗散；这里 $D^mu$ 泛指 $u$ 的任意 $m$ 阶空间导数。更高阶光滑性通过 tame 高阶估计延拓，其增长系数由已控制的低阶 $H^m$ 范数给出；不对每个高阶范数另取越来越小的 $\eps$ 阈值。
 
-对正密度的小初值，频率截断或暂加正则化得到近似解，\eqref{eq:energyhigh} 给参数一致局部估计，紧性和差值估计给存在唯一性与延拓。它在初值范数 $O(\eps)$ 时给出 $c_0/\eps$ 的存在时间和 $\norm{q,u}_{H^m}\le C\eps$；这已覆盖任意固定 $L$ 的对数区间。构造中的辅助正则化不属于最终模型。
+对正密度的小初值，频率截断或暂加正则化得到近似解，\eqref{eq:energyhigh} 给参数一致局部估计，紧性和差值估计给存在唯一性与延拓。它在初值范数 $O(\eps)$ 时给出
+\[
+ T_{\max}(\eps)\ge c_0/\eps,\qquad
+ \norm{q,u}_{H^m}\le C\eps\quad(0\le t\le c_0/\eps).
+\]
+其中，$c_0>0$ 是局部能量估计给出的、与 $\eps$ 无关的存在时间常数，与声速 $c$ 及重启后的常数 $c_*$ 分别记号。这已覆盖任意固定 $L$ 的对数区间。构造中的辅助正则化不属于最终模型。
 
 \subsection{残差计算与证明闭合}
 设
 \[
  \rho^a=1+\eps^2b,\qquad u^a=\eps U+\eps^2Z.
 \]
+其中，$\rho^a,u^a$ 是截断到二阶的近似密度和近似速度，上标 $a$ 是“近似”的标记，不表示幂次，也不表示上述扩散系数函数。
 在原始质量方程中的残差精确为
 \[
  R_\rho=\eps^3\diver(bU)+\eps^4\diver(bZ).
 \]
+其中，$R_\rho$ 是将 $(\rho^a,u^a)$ 代入质量方程后得到的残差，即 $\partial_t\rho^a+\diver(\rho^au^a)$。
 在速度方程中的三阶残差为
 \[
  \eps^3\{U\cdot\nabla Z+Z\cdot\nabla U+\mu b\partial_x^2U\}.
@@ -69,19 +91,30 @@ $t_\eps=L\log(1/\eps)$。对充分小的 $\eps>0$，给定测试初值的光滑�
 \begin{equation}\label{eq:residual}
  \norm{R_\rho,R_u}_{H^m}\le C(\eps^3e^{-\mu t}+\eps^4).
 \end{equation}
-将近似解也变换为 $(q^a,u^a)$。精确解与近似解之差 $e$ 的对称差值能量，使用上一小节同样的扩散交换子估计，给出
+其中，$R_u$ 是将 $(\rho^a,u^a)$ 代入速度方程 \eqref{eq:primitive} 后用左端减去右端得到的向量残差，$\norm{R_\rho,R_u}_{H^m}$ 同时度量质量方程和速度方程的近似误差。
+将近似解也变换为声速变量，并定义差值
+\[
+ q^a=\frac{2(c(\rho^a)-c)}{\gamma-1},\qquad
+ e=(q-q^a,u-u^a).
+\]
+其中，$q^a$ 是近似密度对应的声速扰动，$e$ 是精确解与近似解在对称变量中的差值向量，不是自然指数函数的底数。对 $e$ 的对称差值能量使用上一小节同样的扩散交换子估计，给出
 \[
  \frac{\mathrm d}{\mathrm dt}\norm{e}_{H^m}
  \le C\eps\norm{e}_{H^m}+C(\eps^3e^{-\mu t}+\eps^4),\qquad e(0)=0
 \]
-（零范数处可先正则化能量的平方根）。这里近似解所需的更高导数均由显式有限 Fourier 展开控制；如果用一般局部稳定性引理，可以在高两阶范数构造解，再在 $H^m$ 比较。
+其中，$e(0)=0$ 表示近似解与精确解具有相同初值，指数项 $e^{-\mu t}$ 表示一阶速度的衰减因子。
+零范数处可先正则化能量的平方根。这里近似解所需的更高导数均由显式有限 Fourier 展开控制；如果用一般局部稳定性引理，可以在高两阶范数构造解，再在 $H^m$ 比较。
 积分即得 \eqref{eq:matchingerror}，再由变量变换局部等价性回到 $(\rho,u)$。
 
 在 $t=t_\eps$，$\eps e^{-\mu t_\eps}=\eps^{1+\mu L}=o(\eps^2)$；$H,P$ 以及平均系数的指数瞬态都趋零；\eqref{eq:matchingerror} 除以 $\eps^2$ 也趋零。因此得到 \eqref{eq:handoff}。由 \eqref{eq:nonzero}，这个声学态不会沿某个相位子列整体消失。由于 $t_\eps$ 的声学相位随 $\eps$ 转动，这不是收敛到一个固定空间函数，而是与给定时刻的显式自由轨道接近。
 
 最后在 $t_\eps$ 重启 \eqref{eq:energyhigh}，此时 $E_m^{1/2}\le C\eps^2$，就得到 \eqref{eq:lowerlife}。相同论证在较高阶施行，故这一重启不是只控制低阶范数的形式操作。\hfill$\square$
 
-固定时间结论是该命题的弱形式：对每个固定 $T$，误差为 $O_T(\eps^3)$。仅有这条弱形式时，不能令 $T=T(\eps)\to\infty$ 而忽略常数的增长；上面的显式时间估计正是补上的环节。
+固定时间结论是该命题的弱形式：对每个固定 $T$，有
+\[
+ \sup_{0\le t\le T}\norm{e(t)}_{H^m}=O_T(\eps^3).
+\]
+其中，$T$ 是与 $\eps$ 无关的固定时间上界，$\sup$ 表示对该时间区间取上确界，$O_T$ 的下标表示估计常数允许依赖 $T$。仅有这条弱形式时，不能令 $T=T(\eps)\to\infty$ 而忽略常数的增长；上面的显式时间估计正是补上的环节。
 
 \section{最值得继续证明的论文命题：激波前的慢时间声学调制}
 命题 \ref{prop:matching} 越过了瞬时生成，但本质上仍是精细局部扰动理论。更有希望成为严格论文主结果的是下述明确命题：\emph{从无初始声学分量的二维涡旋出发，在 $O(\eps^{-2})$ 的非线性时间上，严格识别耗散核内的有效声学演化。}
@@ -91,13 +124,21 @@ $t_\eps=L\log(1/\eps)$。对充分小的 $\eps>0$，给定测试初值的光滑�
 \[
  j_\pm=V\pm\frac{2(c(r)-c)}{\gamma-1}.
 \]
+其中，$j_+,j_-$ 是平均密度 $r$ 和质量加权垂直速度 $V$ 对应的两支中心化黎曼变量，在平衡态 $(r,V)=(1,0)$ 时均为零；正、负号分别对应背景传播速度为 $+c$ 和 $-c$ 的声学族。
 保留真实平均应力时，它们满足精确方程
 \begin{equation}\label{eq:riemannforced}
  \left[\partial_t+\left(\pm c+\kappa j_\pm+\beta j_\mp\right)\partial_y\right]j_\pm
  =-\frac{\mathcal S_y}{r},\quad
  \kappa=\frac{\gamma+1}{4},\quad\beta=\frac{3-\gamma}{4}.
 \end{equation}
-取慢时间 $\tau=\eps^2t$、$j_\pm\sim\eps^2f_\pm(\tau,y\mp ct)$。两支初始声学轮廓由二次选择映射给出：
+其中，$\kappa$ 是同一声学族的自相互作用系数，$\beta$ 是相反声学族之间的耦合系数，$j_\mp$ 指与 $j_\pm$ 相反的一族，$\mathcal S_y=\partial_y\mathcal S$ 是精确平均应力的垂直导数。
+取慢时间与随声学特征移动的坐标
+\[
+ \tau=\eps^2t,\qquad \theta=y\mp ct,\qquad
+ j_\pm\sim\eps^2f_\pm(\tau,y\mp ct).
+\]
+其中，$\tau$ 是描述 $O(\eps^{-2})$ 物理时间演化的慢时间，$\theta$ 是沿相应声学族移动的周期空间坐标，$f_\pm(\tau,\theta)$ 是归一化到 $O(1)$ 大小的声学包络；此处 $\sim$ 表示形式领先阶近似，尚不表示已经证明的误差估计。
+两支初始声学轮廓由二次选择映射给出：
 \[
  f_+(0,\theta)=\frac{\mu\sin2\theta+c\cos2\theta}{4D},\qquad
  f_-(0,\theta)=\frac{\mu\sin2\theta-c\cos2\theta}{4D}.
@@ -115,19 +156,29 @@ $t_\eps=L\log(1/\eps)$。对充分小的 $\eps>0$，给定测试初值的光滑�
  b_{\rm eff}(t,y)=\frac{f_+(\eps^2t,y-ct)-f_-(\eps^2t,y+ct)}{2c},\qquad
  v_{\rm eff}(t,y)=\frac{f_+(\eps^2t,y-ct)+f_-(\eps^2t,y+ct)}2.
 \]
+其中，$b_{\rm eff}$ 是由两支包络重建的有效密度扰动系数，$v_{\rm eff}$ 是有效垂直速度系数，下标 $\mathrm{eff}$ 表示“有效”；对应的物理扰动分别是 $\eps^2b_{\rm eff}$ 和 $\eps^2v_{\rm eff}$。
 对于每个固定 $0<\tau_0<\tau_*$，希望证明原二维解存在到 $\tau_0\eps^{-2}$，密度保持在一个固定正区间内，并且对一个明确的整数 $m$，
 \begin{equation}\label{eq:target}
  \sup_{t_\eps\le t\le\tau_0\eps^{-2}}
  \eps^{-2}\norm{(\rho-1,u)-\eps^2(b_{\rm eff},0,v_{\rm eff})}_{H^m(\T^2)}
  \longrightarrow0.
 \end{equation}
+其中，$\tau_0$ 是严格小于有效 Burgers 首次激波慢时间 $\tau_*$ 的固定慢时间上界，$\tau_*$ 的具体值见 \eqref{eq:formalshock}；$\tau_0\eps^{-2}$ 是对应的物理时间上界，$\sup$ 要求误差在整个所列时间区间上一致趋于零，极限仍取 $\eps\downarrow0$。
 应尽量将 $o(1)$ 改成显式幂次或对数误差率，并说明正则性损失和 $\tau_0\uparrow\tau_*$ 时常数的退化。定理首先针对给定测试数据；再推广到二次映射非退化的数据开集，需保留一般会产生的水平平均剪切。
 这比“在一个短固定区间内有二阶项”更有论文价值，也比直接承诺二维激波稳妥。\eqref{eq:target} 即使成立，仍仅覆盖有效激波前的任意固定慢时间，不能自动推出原方程有限时间奇性。
 
 \subsection{需要完成的关键估计}
 \begin{enumerate}
-\item \textbf{慢模与快模分解。}对 $P_0=\avg{\,\cdot\,}$、$P_\perp=I-P_0$，在围绕时变一维声学背景的方程中控制 $P_\perp(\rho,u)$。需结合水平耗散与密度--速度补偿估计，证明在整个激波前慢时间内其应力对慢模的累计作用为 $o(\eps^2)$，并处理所需空间导数。
-\item \textbf{平均应力的定量控制。}用 \eqref{eq:exactmean} 保留 $\mathcal R,\Pi$，例如在交接后建立足够强的 $\int\norm{\mathcal S_y}_{H^m}\dd t=o(\eps^2)$，或给出等价的带正常形修正的估计。仅有每时刻 $O(\eps^4)$ 还不够：累计 $\eps^{-2}$ 时间可达 $O(\eps^2)$。
+\item \textbf{慢模与快模分解。}定义
+\[
+ P_0f=\avg f,\qquad P_\perp f=(I-P_0)f=f-\avg f.
+\]
+其中，$f$ 是待分解的标量或向量函数，$P_0$ 是取水平平均的投影，将所得平均视为不依赖 $x$ 的二维函数；$I$ 是恒等算子，$P_\perp$ 是取非零水平 Fourier 模的投影，作用于向量时逐分量进行。应在围绕时变一维声学背景的方程中控制 $P_\perp(\rho,u)$。需结合水平耗散与密度--速度补偿估计，证明在整个激波前慢时间内其应力对慢模的累计作用为 $o(\eps^2)$，并处理所需空间导数。
+\item \textbf{平均应力的定量控制。}用 \eqref{eq:exactmean} 保留 $\mathcal R,\Pi$，例如在交接后建立足够强的
+\[
+ \int_{t_\eps}^{\tau_0\eps^{-2}}\norm{\mathcal S_y(t)}_{H^m}\dd t=o(\eps^2).
+\]
+其中，该积分度量交接后直到固定激波前慢时间 $\tau_0$ 的平均应力源的累计大小；这里 $\mathcal S_y$ 作为不依赖 $x$ 的二维函数取 $H^m$ 范数。也可给出等价的带正常形修正的估计。仅有每时刻 $O(\eps^4)$ 还不够：累计 $\eps^{-2}$ 时间可达 $O(\eps^2)$。
 \item \textbf{两声学族的正常形。}未平均的交叉项 $\beta j_\mp\partial_yj_\pm$ 也是 $O(\eps^4)$。利用特征速度差 $2c$ 和零均值消掉非共振部分，保留自相互作用 Burgers 项，并控制导数损失。
 \item \textbf{高阶近似与长期稳定。}单纯二阶线性近似的四阶残差积分会达到主项大小；需加入非线性一维演化或多尺度修正，使剩余源项在慢时间上足够小。系数随 $\tau_0$ 的控制必须写清楚。
 \end{enumerate}
@@ -137,23 +188,34 @@ $t_\eps=L\log(1/\eps)$。对充分小的 $\eps>0$，给定测试初值的光滑�
 \[
  \min f_\pm'(0,\theta)=-\frac1{2\sqrt D}.
 \]
+其中，$f_\pm'$ 表示对周期空间坐标 $\theta$ 求导，$\min$ 是对 $\theta\in\T$ 取最小值，其负值刻画初始包络的最强压缩斜率。
 所以有效 Burgers 的首次梯度爆破慢时间为
 \begin{equation}\label{eq:formalshock}
  \tau_* =\frac{8\sqrt{\mu^2+A\gamma}}{\gamma+1}.
 \end{equation}
+其中，$\tau_*$ 是有效无黏 Burgers 包络首次出现梯度无界的慢时间，不是已经证明的原二维系统激波时刻。
 这给出更具体、可检验的形式猜想
 \[
  T_\eps\ \text{可能满足}\quad
  \eps^2T_\eps\longrightarrow\frac{8\sqrt{\mu^2+A\gamma}}{\gamma+1}.
 \]
+其中，$T_\eps$ 是所猜想的原二维解首次激波形成的物理时间；若这种激波确为首次经典奇性，则它等于 $T_{\max}(\eps)$。箭头表示猜想中的 $\eps\downarrow0$ 寿命渐近关系。
 目前既未证明上界，也未证明这个常数。$O(\eps^2)$ 幅度推出 $O(\eps^{-2})$ 自陡化时间，依赖固定波长、真正非线性系数非零、存在压缩以及长期无有效阻尼等条件，不是仅从振幅即可推出的定律。
 
 最主要的失败机制如下。
 \begin{itemize}
 \item \textbf{累积反馈。}高阶 Reynolds 应力、压力修正、生成的剪切模及两声学族相互作用可能在该时间尺度改变波形；必须估计，不能用“比主项高阶”排除。
-\item \textbf{几何黏性。}若声学相位 $\phi$ 出现水平依赖，$\mu\partial_x^2$ 在相位坐标中含 $\mu(\partial_x\phi)^2\partial_\phi^2$。即使系数很小，它在梯度急剧增大时也可能成为主导。CGM 的倾斜例说明这是一项结构性困难，而不是普通低阶扰动。环面周期性需另行检查，因此它不是给定初值的现成反例。
+\item \textbf{几何黏性。}若声学相位出现水平依赖，$\mu\partial_x^2$ 在相位坐标中含有二阶项
+\[
+ \mu(\partial_x\phi)^2\partial_\phi^2.
+\]
+其中，$\phi=\phi(t,x,y)$ 是描述声学波面位置的相位函数，$\partial_x\phi$ 度量波面对水平方向的依赖，$\partial_\phi$ 是保持其余新坐标不变时沿相位坐标求导的算子。即使系数很小，它在梯度急剧增大时也可能成为主导。CGM 的倾斜例说明这是一项结构性困难，而不是普通低阶扰动。环面周期性需另行检查，因此它不是给定初值的现成反例。
 \item \textbf{临近奇性时的误差失控。}激波前固定 $\tau_0$ 的 Sobolev 逼近不能一直取到 $\tau_*$。要证明爆破，须建立压缩梯度的 Riccati 不等式或声学逆特征密度方程，并对水平二阶项作奇性适配估计。
-\item \textbf{条件变化。}若让 $\mu$ 随 $\eps$ 变化，快慢分离可能消失；若换初值，一般二次映射可能为零，或产生不同波长和相位。作为直接反例，$\rho=1,u=(0,\eps e^{\mu t\partial_x^2}f(x))$ 是精确剪切解，不生成声学波。这不否定给定二维测试数据。
+\item \textbf{条件变化。}若让 $\mu$ 随 $\eps$ 变化，快慢分离可能消失；若换初值，一般二次映射可能为零，或产生不同波长和相位。作为直接反例，下式给出精确剪切解：
+\[
+ \rho=1,\qquad u=(0,\eps e^{\mu t\partial_x^2}f(x))
+\]
+其中，$f(x)$ 是任意光滑的 $2\pi$ 周期剪切轮廓，与前述声学包络 $f_\pm$ 不同；$e^{\mu t\partial_x^2}$ 是水平热半群，将初始轮廓演化为水平热方程的解。该解不生成声学波，但这不否定给定二维测试数据。
 \end{itemize}
 
 \section{下一步计算与投入建议}
@@ -164,7 +226,7 @@ $t_\eps=L\log(1/\eps)$。对充分小的 $\eps>0$，给定测试初值的光滑�
 \item 把命题 \ref{prop:matching} 的局部构造、差值能量与参数依赖写成完整引理，确认所有 Sobolev 指标及平均量的偶性。
 \item 求三阶非零水平模，以及四阶平均方程中的全部项；区分可积的快模源与声学自相互作用，提取与 \eqref{eq:burgersmod} 一致的共振项。
 \item 证明以一维非线性声学解为背景的非零水平模衰减和应力积分估计。先在固定 $\tau_0<\tau_*$ 上闭合，再研究常数接近奇性时如何退化。
-\item 辅助数值若开展，应保持守恒动量与唯一的 $\mu\partial_x^2u$；记录声学特征轮廓、$\mathcal R,\Pi$、密度上下界、$\norm{\partial_yu_2}_\infty$ 及非零水平模能量，至少做空间分辨率和时间步长收敛。高频滤波或垂直人工黏性会直接改变问题，必须单独量化。
+\item 辅助数值若开展，应保持守恒动量与唯一的 $\mu\partial_x^2u$；记录声学特征轮廓、$\mathcal R,\Pi$、密度上下界、$\norm{\partial_yu_2}_\infty$ 及非零水平模能量，至少做空间分辨率和时间步长收敛。其中，范数下标 $\infty$ 是 $L^\infty(\T^2)$ 的简写，该量度量垂直速度的垂直梯度最大幅值。高频滤波或垂直人工黏性会直接改变问题，必须单独量化。
 \end{enumerate}
 本轮附带的计算脚本只验证二阶 ODE、非抵消恒等式与符号系数，不是原 PDE 激波的数值证据。13 项符号恒等式均通过；独立四阶 Runge--Kutta 积分在 $(\mu,c)=(1,1),(0.2,1),(3,1),(1,2)$、步长 $10^{-3}$、区间 $[0,8]$ 上与闭式解的最大绝对差小于 $7.5\times10^{-12}$。结果保存在 \texttt{verification.json}，不据此作激波数值判断。
 如果后续发现倾斜黏性阻止稳定激波，仍可转向“耗散核内非线性声学选择与长时间调制”，或明确限定到 $\gamma=3$ 的压力律以隔离双声学族耦合；这些都是有数学内容的相邻问题。现在没有充分理由因为长期爆破困难而否定整个方向。
