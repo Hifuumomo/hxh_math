@@ -1,0 +1,11 @@
+# LaTeX 临时文件；保留编译好的 PDF。
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+build-output.txt
+__pycache__/
+tmp/

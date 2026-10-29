@@ -1,0 +1,62 @@
+\section{初步文献定位与逐项排除}
+检索日期为 2026 年 10 月 30 日。使用的检索组合包括 compressible Navier--Stokes、anisotropic / horizontal / transverse viscosity、partial dissipation、shock formation、zero mode、mean flow、effective acoustics 和 Taylor--Green vortex。以下列出的定理号、模型或章节均核对了原始论文的相关正文；没有把摘要当作完整证明审查。2026 年论文按预印本处理，不把它们当作已经同行评审的结论。
+
+\subsection{紧凑对照}
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.20\textwidth}>{\raggedright\arraybackslash}p{.17\textwidth}>{\raggedright\arraybackslash}p{.30\textwidth}>{\raggedright\arraybackslash}p{.25\textwidth}@{}}
+\toprule
+论文与定位 & 定义域 & 黏性／压力 & 结论及与本题的差别\\
+\midrule
+\endfirsthead
+\toprule
+论文与定位 & 定义域 & 黏性／压力 & 结论及与本题的差别\\
+\midrule
+\endhead
+CGM \cite{CGM}，Theorems 2--3 & $\R^2$ & 标量 $u_t+uu_x=u_{yy}$；无密度、压力 & 梯度爆破构造；不是可压缩系统或环面零模生成\\[4pt]
+Bresch--Jabin \cite{BJ}，Theorem 3.2 & $\T^d$ & 小各向异性椭圆应力及体黏性；一般增长压力律 & 有限能量全球弱解；不覆盖本题退化算子\\[4pt]
+Gao--Peng--Wu--Yao \cite{GPWY}，Theorems 1.1--1.2 & $\R^3_+$，滑移边界 & $\Delta_hu+\nu\partial_3^2u+\nabla\diver u$；$P=\rho^3/3$ & 一致正则性与 $\nu\to0$；极限仍有体黏性\\[4pt]
+Feng--Hong--Wang--Wu \cite{FHWW}，Theorems 1.1--1.2 & $\R^3$ & $\mu\Delta_hu+(\mu+\zeta)\nabla\diver u$；$P'>0$ & 小解全球稳定及衰减；体黏性系数严格正\\[4pt]
+Masmoudi--Sun--Wang--Zhang \cite{MSWZ}，Theorems 1.1--1.2 & $\T^2\times[0,a_3]$，Dirichlet & $\mu_1(\Delta_h+\nu\partial_z^2)u+\mu_2\nabla\diver u$；$\rho^\gamma/\gamma$ & 低 Mach、消失垂直黏性极限；固定时间近似与余项\\[4pt]
+Huang--Li--Xu \cite{HLX}，Theorems 2.2--2.3 & $\T\times\R$ & 完整黏性及体黏性；$P'(1)=1$ & Couette 稳定、扩散波；零模也有扩散\\[4pt]
+Antuono--Marrone \cite{AM}，\S\S2--4 & 二维双周期 & 速度方程 $\nu\Delta u$；线性化弱可压压力 & TG 涡声学修正、形式展开及数值对照\\[4pt]
+Luk--Speck \cite{LS}，Theorem 16.1 & $\R\times\T$ & 无黏；真正非线性的正压律 & 平面 Euler 激波对有涡二维扰动的稳定性\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\subsection{与题目新颖性最有关的核对结果}
+\paragraph{各向异性不等于方向完全退化。}
+Bresch--Jabin 的 Theorem 3.2，正文 pp.~594--595、式 (3.6)--(3.9)，要求相对各向同性背景的小各向异性及耗散正性；数据是可含真空的有限能量数据，压力增长指数还有下界限制。它是弱解存在性结果，不能回答本题的正密度经典解激波。\cite{BJ}
+
+Gao 等的式 (1.1)、极限式 (1.5) 明确保留 $\nabla\diver u$。Theorem 1.1 使用高阶 conormal 及负水平阶数等小能量数据，Theorem 1.2 给极限全球解；空间是半空间，边界为 $u_3=\partial_3u_h=0$。Feng 等的式 (1.1) 则要求 $\mu>0,3\zeta+2\mu>0$，所以 $\mu+\zeta>0$；Theorem 1.1 针对 $N\ge3$ 的小 $H^N$ 数据。两者的纵向声学耗散均不能移除后原样引用。\cite{GPWY,FHWW}
+
+\paragraph{有效声学和平均／非平均模方法已有重要基础。}
+Masmoudi 等取 Mach 数 $\epsilon\to0$、$\nu=\epsilon^\kappa$，Theorem 1.2 的范围含 $0<\kappa<3$、相容性与几何小除数条件；Appendix B.2 的 $(\mathrm{DB})_m^\alpha$ 是耦合阻尼 Burgers 声学方程，Lemma B.3 给局部适定性。其近似解加余项稳定性的组织可借鉴，但参数和时间尺度均不同于本题固定声速的 $\eps^{-2}$ 演化。\cite{MSWZ}
+
+Huang--Li--Xu 的式 (2.4)--(2.5) 使用平均守恒变量和非零模应力，式 (2.19)、(2.24) 构造 Burgers 扩散波及耦合修正；Theorems 2.2--2.3 针对 Couette 背景下 $O(\mu^\alpha)$、$\alpha>11/3$ 的扰动及附加可积性／反导数条件。这里平均声学模有纵向扩散，不能据此得到本题无阻尼零模的长期行为。\cite{HLX}
+
+\paragraph{Taylor--Green 涡产生声波不是新的物理观察。}
+Antuono--Marrone 的 \S2 式 (1) 采用速度方程中常运动黏度 $\nu\Delta u$；弱可压缩参数为 $\mathrm{Ma}^2$，压力近似线性，\S3 构造 Taylor--Green 修正并与数值结果比较。原文讨论了不可压缩 TG 初值的声学污染。\cite{AM}
+本题潜在新意应放在\emph{耗散核内的非零残留声学数据及其定量长期演化}。访问限制须说明：该文出版社及 CNR PDF 直取遇到 403，核对依赖检索工具返回的原始 PDF 正文片段（\S2 及 \S3 的相关段落），未审阅全文证明；不为它编造严格误差定理或定理号。
+
+\subsection{CGM 的工具和可压缩系统的实质障碍}
+CGM 原文 v2 的 Theorems 2--3（PDF pp.~4--5）构造局域化光滑初值的梯度奇性。式 (1.6)--(1.7) 利用对称轴得到
+$\xi=-u_x|_{x=0}$ 满足 $\xi_t=\xi^2+\xi_{yy}$。\S1.5(2) 讨论对称性破缺与倾斜；\S5.2 的稳定分析使用奇偶结构，不能据定理中的简写把它读成任意二维扰动稳定性。\cite{CGM}
+
+下面是对本题的独立结构比较。可迁移的思路包括：沿奇性方向的展开、横向抛物调制、自相似变量和加权能量、内外区匹配。难点在于本系统有密度和两个声学族，梯度方程含压力 Hessian，速度黏性是 $\mu/\rho$；没有上述标量轴上闭合。
+
+倾斜的危险可直接计算：对标量方程取 $u(t,x,y)=F(t,x-\delta y)$，便得到
+\[
+ F_t+FF_z=\delta^2F_{zz}.
+\]
+这说明横向黏性可能因波面方向改变而作用于压缩方向。对本题要另行研究这种几何效应，而不能把它视为 Euler 激波方程中的一般低阶误差。
+
+\subsection{Euler 激波参照和线性耗散判据}
+Luk--Speck 的 Theorem 16.1，式 (16.0.66)、(16.0.69)，处理满足相对小量条件的简单平面波扰动，允许非零涡量；声学几何聚焦使密度和速度梯度失界而状态量保持有界。它提供处理多速率和涡量的框架，但没有本题的方向退化二阶算子，也没有由纯涡旋经过长时间产生弱压缩的过程。\cite{LS}
+
+Shizuta--Kawashima 的 Theorem 1.1 将对称线性双曲--抛物系统的严格耗散与代数耦合条件联系起来，Theorem 1.2 给相应衰减。\cite{SK}
+本题在方向 $k=(0,k_2)$ 上扩散符号为零且有声学特征向量，显然不满足全方向严格耗散条件。这一独立检验解释了为何不能套用以该条件为前提的全球小解定理。
+
+\subsection{查重边界}
+以上文献没有直接给出本题的零模交接、慢时间调制或真正二维激波结论。\textbf{这只排除了这些具体定理的直接适用性，不证明题目尚未解决。}“partial viscosity”可能仅指密度变量没有扩散；“degenerate viscosity”也常指真空处密度依赖黏度退化，都不等于本题的空间方向退化。
+下一轮须追踪 TG 声学修正、非线性几何光学、退化双曲--抛物中心模和横向黏性激波的引用链，尤其核查是否已有抽象定理直接包含本文的二次选择映射及慢时间结论。没有完成这一步前，不宜在论文摘要中写“首次”或“解决公开问题”。

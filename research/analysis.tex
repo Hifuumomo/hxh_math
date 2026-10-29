@@ -1,0 +1,262 @@
+\section{研究判断与结论层次}
+
+原始的存在性问题已有一个直接的肯定答案：系统含有一维等熵 Euler 的不变子类，压缩简单波给出有限时间梯度爆破。这一事实本身不宜作为论文的主要创新点。更有内容的问题是：\emph{初始没有声学零模、只有真正二维涡旋振荡时，耗散过程中产生的二次声学波如何被选择，如何在后续时间中演化？}
+
+本轮计算支持继续研究，但支持的范围必须限定如下。
+\begin{enumerate}
+\item \textbf{精确事实：}一维嵌入、瞬时零模生成、精确平均方程及线性谱都可以直接验证。
+\item \textbf{展开系数的精确事实：}给定测试初值的一阶密度为零；二阶水平平均包含非零、无阻尼的自由声学部分，对任何固定 $\mu,A>0$、$\gamma>1$ 均无完全抵消。
+\item \textbf{能量估计结论：}本文给出固定时间与对数时间二阶近似的定量误差证明方案，并由小数据能量重启得到寿命下界；作为投稿稿件，仍需完整整理局部构造和各阶稳定性引理。
+\item \textbf{尚未证明：}完整二维解在 $O(\eps^{-2})$ 时间上的有效动力学、激波形成及寿命渐近。二阶系数在 $t\to\infty$ 时的行为并不等于固定 $\eps$ 的原方程长期行为。
+\end{enumerate}
+全文固定 $A,\gamma,\mu$，令 $\eps\to0$。所有误差常数允许依赖这三个参数，不声称对 $\mu\to0$、$\mu\to\infty$ 或声速趋零一致。
+
+\section{模型、能量与一维激波嵌入}
+记 $x=x_1,y=x_2$，$c=\sqrt{p'(1)}=\sqrt{A\gamma}$。研究且仅研究
+\begin{equation}\label{eq:model}
+ \rho_t+\diver(\rho u)=0,\qquad
+ (\rho u)_t+\diver(\rho u\otimes u)+\nabla p(\rho)=\mu\partial_x^2u,
+ \quad (x,y)\in\T^2.
+\end{equation}
+正密度的光滑解等价地满足
+\begin{equation}\label{eq:primitive}
+ u_t+u\cdot\nabla u+\frac{p'(\rho)}{\rho}\nabla\rho
+ =\frac{\mu}{\rho}\partial_x^2u.
+\end{equation}
+所以不能把速度方程中的扩散系数当作常数，也不能附加 $\diver u=0$。
+周期边界给出质量和两个方向总动量守恒，以及
+\begin{equation}\label{eq:energy}
+ \frac{\mathrm d}{\mathrm dt}\int_{\T^2}
+ \left(\frac12\rho|u|^2+\frac{A}{\gamma-1}\rho^\gamma\right)\dd x\dd y
+ +\mu\int_{\T^2}|\partial_xu|^2\dd x\dd y=0.
+\end{equation}
+这不是对 $\partial_yu$ 的耗散估计；能量有界与梯度爆破相容。
+
+\subsection{约化完全成立，但只在不变子类内}
+代入 $\rho=r(t,y)$、$u=(0,v(t,y))$ 后，水平黏性和水平动量方程消失，余下
+\begin{equation}\label{eq:1d}
+ r_t+(rv)_y=0,\qquad (rv)_t+(rv^2+p(r))_y=0.
+\end{equation}
+需要 $r_0>0$、$r_0,v_0$ 光滑且 $2\pi$ 周期。由光滑解唯一性，该嵌入在首次奇性前成立；不要求初始密度常数。
+
+令 $c(r)=\sqrt{A\gamma}\,r^{(\gamma-1)/2}$，黎曼不变量为
+\[
+ w_\pm=v\pm\frac{2c(r)}{\gamma-1},\qquad
+ (\partial_t+(v\pm c(r))\partial_y)w_\pm=0.
+\]
+固定 $w_-=K$，则
+\begin{equation}\label{eq:simple}
+ (w_+)_t+\left(\frac{\gamma+1}{4}w_+
+       +\frac{3-\gamma}{4}K\right)(w_+)_y=0.
+\end{equation}
+例如取 $K=-2c/(\gamma-1)$、
+$w_+(0,y)=2c/(\gamma-1)+\delta\sin y$，$\delta>0$ 充分小。于是
+\[
+ v_0=\frac\delta2\sin y,\qquad
+ c(r_0)=c+\frac{\gamma-1}{4}\delta\sin y>0.
+\]
+特征映射及斜率公式为
+\[
+ y=\xi+\lambda_+(w_{+,0}(\xi),K)t,\qquad
+ (w_+)_y(t,y)=\frac{w_{+,0}'(\xi)}{1+\frac{\gamma+1}{4}t w_{+,0}'(\xi)}.
+\]
+故精确首次激波时间
+\begin{equation}\label{eq:embeddedtime}
+ T_*=-\frac4{(\gamma+1)\min w_{+,0}'}=\frac4{(\gamma+1)\delta}.
+\end{equation}
+这里 $v,r$ 本身一直有界，而且 $0<r_{\min}\le r\le r_{\max}<\infty$，因为它们是沿特征搬运的 $w_+$ 的光滑函数。爆破的是 $v_y$、$r_y$ 的 $L^\infty$ 范数；密度梯度与 $w_+$ 梯度间的系数在上述紧正区间内非零。原二维解的 $C^1$ 正则性因此失效。这里不涉及真空或速度幅值无穷大，也未证明任意真正二维扰动下该激波稳定。
+
+\subsection{初始密度常数不构成不变约束}
+对于本题测试初值，$\rho_t(0)=0$，但直接微分得到
+\begin{equation}\label{eq:rhott}
+ \rho_{tt}(0,x,y)=\eps^2(\cos2x-\cos2y).
+\end{equation}
+因此密度立即在二阶时间展开中偏离常数。初始散度零只用于计算初始及一阶量。
+
+\section{线性谱与测试初值的一阶解}
+采用不带阶乘的展开约定
+\begin{equation}\label{eq:series}
+ \rho=1+\eps a+\eps^2b+\cdots,\qquad
+ u=\eps U+\eps^2 Z+\cdots.
+\end{equation}
+一阶方程为
+\begin{equation}\label{eq:linear}
+ a_t+\diver U=0,\qquad U_t+c^2\nabla a=\mu\partial_x^2U.
+\end{equation}
+频率 $k=(k_1,k_2)\ne0$ 处，横于 $k$ 的速度分量有特征值 $-\mu k_1^2$；纵向声学特征值满足
+\begin{equation}\label{eq:spectrum}
+ \lambda^2+\mu k_1^2\lambda+c^2|k|^2=0,
+ \quad \lambda_\pm=\frac{-\mu k_1^2\pm\sqrt{\mu^2 k_1^4-4c^2|k|^2}}2.
+\end{equation}
+当 $k_1=0,k_2\ne0$，有 $\lambda_\pm=\pm ic|k_2|$，以及水平剪切特征值 $0$。因此“水平零模”包含两支声学模和一个剪切模，不能全部称为声学模。$k=(0,0)$ 对应守恒量。
+对于 $k_1\ne0$，各根实部为负；固定 $\mu,c$ 的周期格点上可建立指数衰减，但密度衰减需用声学耦合或补偿能量，单凭速度的 Poincar\'e 不等式不够。
+
+测试初值记作
+\[
+ W=(\sin x\sin y,\ \cos x\cos y),\qquad a(0)=0,\quad U(0)=W.
+\]
+由于 $\diver W=0$ 且 $\partial_x^2W=-W$，唯一一阶解为
+\begin{equation}\label{eq:first}
+ a\equiv0,\qquad U=e^{-\mu t}W.
+\end{equation}
+这是一阶特殊结构，不是原方程不可压缩性的证明。
+
+\section{二阶全场与水平平均的显式计算}
+\subsection{瞬时生成公式}
+平均垂直动量的精确守恒式给出
+\[
+ \left.\partial_t\avg{\rho u_2}\right|_0
+ =-\partial_y\avg{u_{2,0}^2}
+ =-\partial_y\left(\frac{\eps^2}2\cos^2y\right)
+ =\frac{\eps^2}2\sin2y.
+\]
+用户给出的公式正确。它产生的是 $k_1=0,k_2=\pm2$ 的水平零模，不是总动量 $k=(0,0)$；后者仍为零。
+
+\subsection{二阶方程及被消掉的项}
+因为 $a=0$，二阶方程简化为
+\begin{equation}\label{eq:second}
+ b_t+\diver Z=0,\qquad
+ Z_t+c^2\nabla b-\mu\partial_x^2Z=-U\cdot\nabla U,
+ \quad (b,Z)|_{t=0}=0.
+\end{equation}
+一般二阶速度方程中的 $[p''(1)-p'(1)]a\nabla a$、$-\mu a\partial_x^2U$，以及质量方程中的 $\diver(aU)$ 在这里均为零。直接计算
+\begin{equation}\label{eq:force}
+ -U\cdot\nabla U
+ =e^{-2\mu t}\left(-\frac12\sin2x,\frac12\sin2y\right)
+ =e^{-2\mu t}\nabla\left(\frac14\cos2x-\frac14\cos2y\right).
+\end{equation}
+源项虽是梯度，却不能像不可压缩方程的拉格朗日乘子那样被“压力投影”消掉；这里压力由密度决定，恰会激发声学响应。
+
+二阶全场可写成
+\begin{equation}\label{eq:fullsecond}
+ b=H(t)\cos2x+B(t)\cos2y,\quad
+ Z=(P(t)\sin2x,Q(t)\sin2y),
+\end{equation}
+其中
+\begin{align}
+ H'=-2P,&\quad P'+4\mu P-2c^2H=-\tfrac12e^{-2\mu t},\label{eq:Hx}\\
+ B'=-2Q,&\quad Q'-2c^2B=\tfrac12e^{-2\mu t}.\label{eq:BQ}
+\end{align}
+初值均为零。因此
+\begin{align}
+ H''+4\mu H'+4c^2H&=e^{-2\mu t},\label{eq:HOde}\\
+ B''+4c^2B&=-e^{-2\mu t}.\label{eq:BOde}
+\end{align}
+前者水平受阻尼，后者不受直接阻尼。可选的全场显式公式是
+\[
+ H(t)=e^{-2\mu t}
+ \begin{cases}
+ \dfrac{1-\cos(2\sqrt{c^2-\mu^2}\,t)}{4(c^2-\mu^2)},&c>\mu,\\[5pt]
+ t^2/2,&c=\mu,\\[3pt]
+ \dfrac{\cosh(2\sqrt{\mu^2-c^2}\,t)-1}{4(\mu^2-c^2)},&c<\mu,
+ \end{cases}
+ \qquad P=-H'/2.
+\]
+对固定正参数，$H,P$ 指数衰减（临界情形的多项式因子可由稍慢指数吸收）。
+
+\subsection{声学平均公式与非抵消}
+设 $D=\mu^2+c^2$。方程 \eqref{eq:BQ} 的解为
+\begin{equation}\label{eq:Bexplicit}
+ \boxed{B(t)=\frac{\cos(2ct)-\frac\mu c\sin(2ct)-e^{-2\mu t}}{4D}},
+\end{equation}
+\begin{equation}\label{eq:Qexplicit}
+ \boxed{Q(t)=\frac{\mu\cos(2ct)+c\sin(2ct)-\mu e^{-2\mu t}}{4D}}.
+\end{equation}
+在二阶精度下，$\avg\rho=1+\eps^2B\cos2y$、$\avg{\rho u_2}=\eps^2Q\sin2y$，质量加权速度 $V$ 也是 $\eps^2Q\sin2y$。
+
+去掉指数瞬态，记余下 $B_\infty(t),Q_\infty(t)$；下标不表示时间极限，而表示自由声学轨道。令
+\[
+ z_\pm(t,y)=Q_\infty(t)\sin2y\pm cB_\infty(t)\cos2y.
+\]
+则
+\begin{align}
+ z_+(t,y)&=\frac{\mu\sin(2(y-ct))+c\cos(2(y-ct))}{4D},\label{eq:zplus}\\
+ z_-(t,y)&=\frac{\mu\sin(2(y+ct))-c\cos(2(y+ct))}{4D}.\label{eq:zminus}
+\end{align}
+两支特征波的振幅均为
+\begin{equation}\label{eq:amplitude}
+ \boxed{\mathcal A=\frac1{4\sqrt{\mu^2+c^2}}>0}.
+\end{equation}
+密度系数和速度系数的时间振幅分别为 $1/(4c\sqrt D)$ 和 $1/(4\sqrt D)$。不能用某一个时刻 $Q(t)=0$ 推断声学态消失。恒等式
+\begin{equation}\label{eq:nonzero}
+ c^2B_\infty(t)^2+Q_\infty(t)^2=\frac1{16D}
+\end{equation}
+给出整个声学相空间的统一非零下界。
+
+二阶只依赖 $p'(1)=A\gamma$，不单独依赖 $p''(1)$。当 $\mu$ 很大时声学振幅约为 $1/(4\mu)$，其减弱来自源项很快被耗散；当 $\mu\downarrow0$ 时上述系数有有限极限，但源项消退时间 $1/\mu$ 发散，不能交换 $t\to\infty$ 与 $\mu\to0$。
+
+\subsection{存在的抵消结构与不存在的抵消}
+\begin{itemize}
+\item $a=0$ 消掉了二阶密度--速度通量与二阶压力非线性；$\avg{U_1U_2}=0$，所以测试初值的二阶水平动量零模为零。
+\item $W(x+\pi,y)=-W(x,y)$。由平移不变性和唯一性，参数 $-\eps$ 的解是参数 $\eps$ 的解水平平移 $\pi$，故水平平均量关于 $\eps$ 为偶函数。在具有足够参数可微性、允许损失 Sobolev 导数的固定时间展开中，平均量的三阶系数因此为零。本文保守的 $O(\eps^3)$ 误差并未用此改进。
+\item 正负 $k_1$ 的相互作用生成 $k_1=0$，其 $k_2=\pm2$ 声学投影由 \eqref{eq:zplus}--\eqref{eq:amplitude} 确认非零。没有导致二次声学尾波完全消失的 null structure。
+\end{itemize}
+
+\section{精确平均方程：闭合误差不能删除}
+只要密度为正，定义
+\[
+ r=\avg\rho,\qquad V=\frac{\avg{\rho u_2}}r,\qquad
+ \eta=\rho-r,\quad w=u_2-V.
+\]
+注意 $\avg\eta=0$、$\avg{\rho w}=0$，但一般 $\avg w\ne0$。由守恒式严格得到
+\begin{equation}\label{eq:exactmean}
+ \boxed{\begin{aligned}
+ r_t+(rV)_y&=0,\\
+ (rV)_t+(rV^2+p(r))_y&=-\partial_y\mathcal S,\\
+ \mathcal S&=\mathcal R+\Pi,\\
+ \mathcal R&=\avg{\rho(u_2-V)^2},\qquad
+ \Pi=\avg{p(\rho)}-p(r).
+ \end{aligned}}
+\end{equation}
+黏性平均为零是因为 $\avg{\partial_x^2u_2}=0$；这不表示其对 $\mathcal R,\Pi$ 的动力学无影响。由于 $p$ 凸，$\mathcal R,\Pi\ge0$，但 $\partial_y\mathcal S$ 没有符号。
+等价的速度方程为
+\[
+ V_t+VV_y+\frac{p'(r)}r r_y=-\frac1r\mathcal S_y.
+\]
+精确 Taylor 形式
+\[
+ \Pi=\avg{\eta^2\int_0^1(1-\theta)p''(r+\theta\eta)\dd\theta}
+\]
+说明压力修正由密度振荡决定，不能仅用 $p(r)$ 替代平均压力。
+
+测试初值在固定时间展开中给出
+\[
+ \mathcal R=\frac{\eps^2}{2}e^{-2\mu t}\cos^2y+O(\eps^3),\qquad
+ \Pi=O(\eps^4).
+\]
+利用偶性可在更高阶展开中改进前一式余项；这不影响二阶源。形式四阶压力主项为
+\[
+ \frac{\eps^4p''(1)H(t)^2}{4}.
+\]
+它在 $y$ 上恰为常数，故其在四阶平均动量中的导数为零；更高阶及一般初值不具有此简化。
+
+如还需水平平均速度，定义 $J=\avg{\rho u_1}$、$W_m=J/r$，则
+\[
+ J_t+\partial_y(rW_mV+\mathcal C)=0,\qquad
+ \mathcal C=\avg{\rho(u_1-W_m)(u_2-V)}.
+\]
+这显示慢子空间并不只含两支声学波。对本测试初值，水平反射 $x\mapsto-x$ 下 $u_1$ 为奇函数、$\rho,u_2$ 为偶函数，唯一性保持这一已有对称性，故 $J\equiv0$。这不是对模型另加的初值假设；推广至一般数据时必须处理 $J$。
+
+\section{一般涡旋数据的二次声学选择映射}
+这一节推广的是待研究的数据类，明确增加了“常密度、零水平平均、散度零”这三个条件；它们正是给定测试初值已有的性质。设 $u_0=\eps W$、$\avg W=0$、$\diver W=0$、$\rho_0=1$。则一阶仍为
+$U(t)=e^{\mu t\partial_x^2}W$、$a=0$。写二阶平均密度和垂直速度为 $b_m,q_m$，则
+\begin{equation}\label{eq:generalmean}
+ (b_m)_t+(q_m)_y=0,\qquad
+ (q_m)_t+c^2(b_m)_y=F(t,y),\quad
+ F=-\partial_y\avg{U_2^2}.
+\end{equation}
+因此 $z_\pm=q_m\pm cb_m$ 满足 $(\partial_t\pm c\partial_y)z_\pm=F$，其散射轮廓是明确的二次映射
+\begin{equation}\label{eq:scattermap}
+ \boxed{\mathcal Q_\pm[W](\theta)
+ =-\partial_\theta\int_0^\infty
+ \avg{(e^{\mu s\partial_x^2}W_2)^2}(\theta\pm cs)\dd s.}
+\end{equation}
+此式对展开系数严格成立。热半群在非零水平频率上指数衰减，故积分绝对收敛。Fourier 约定 $W_2=\sum_{k,\ell}\widehat W_{2;k,\ell}e^{i(kx+\ell y)}$ 下
+\begin{equation}\label{eq:multiplier}
+ \widehat{\mathcal Q_\pm[W]}(n)
+ =-in\sum_{k\ne0}\sum_{\ell\in\mathbb Z}
+ \frac{\widehat W_{2;k,\ell}\widehat W_{2;-k,n-\ell}}
+ {2\mu k^2\mp icn}.
+\end{equation}
+这给出频率选择律、耗散--传播相位的竞争，也说明 $n=0$ 不被生成。对 $n\ne0$，乘子绝对值不超过 $1/c$；配合二维 Sobolev 代数估计，二次映射在足够高正则性中连续。测试数据已证明该映射不恒为零，因而其附近（在上述受约束数据类内）存在声学输出非零的开集。
+不过瞬时 $F(0)\ne0$ 对一般数据不保证积分 \eqref{eq:scattermap} 非零，必须检查整个受迫历程的相位抵消。

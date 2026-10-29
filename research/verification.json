@@ -1,0 +1,48 @@
+{
+  "scope": "二阶系数代数及ODE核对，不是原PDE的激波数值证据",
+  "symbolic_checks": {
+    "initial_divergence": true,
+    "horizontal_force": true,
+    "vertical_force": true,
+    "mass_ode": true,
+    "momentum_ode": true,
+    "initial_density": true,
+    "initial_velocity": true,
+    "noncancellation": true,
+    "right_wave": true,
+    "left_wave": true,
+    "underdamped": true,
+    "critical": true,
+    "overdamped": true
+  },
+  "independent_ode_checks": [
+    {
+      "mu": 1,
+      "c": 1,
+      "step": 0.001,
+      "end_time": 8.0,
+      "max_absolute_error": 3.6221720067786123e-13
+    },
+    {
+      "mu": 0.2,
+      "c": 1,
+      "step": 0.001,
+      "end_time": 8.0,
+      "max_absolute_error": 5.093217514406945e-13
+    },
+    {
+      "mu": 3,
+      "c": 1,
+      "step": 0.001,
+      "end_time": 8.0,
+      "max_absolute_error": 1.4976648393671965e-13
+    },
+    {
+      "mu": 1,
+      "c": 2,
+      "step": 0.001,
+      "end_time": 8.0,
+      "max_absolute_error": 7.408277984122247e-12
+    }
+  ]
+}

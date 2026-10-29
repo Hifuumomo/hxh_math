@@ -1,0 +1,36 @@
+% !TeX program = xelatex
+\documentclass[UTF8,fontset=fandol,11pt,a4paper]{ctexart}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs,longtable,tabularx,array}
+\usepackage{xcolor,graphicx}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!60!black,citecolor=blue!50!black]{hyperref}
+\usepackage{enumitem}
+\setlist{itemsep=3pt,topsep=4pt}
+\allowdisplaybreaks[3]
+\newtheorem{proposition}{命题}[section]
+\newtheorem{lemma}[proposition]{引理}
+\newtheorem{theorem}[proposition]{定理}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{说明}
+\newcommand{\T}{\mathbb T}
+\newcommand{\R}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\avg}[1]{\overline{#1}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\DeclareMathOperator{\diver}{div}
+\title{仅水平黏性的二维等熵可压缩流体\\二阶声学生成、证明路线与文献核对}
+\author{研究备忘录：第一轮独立评估}
+\date{2026年10月30日}
+\begin{document}
+\maketitle
+\begin{abstract}
+本文核对固定退化黏性模型的一维激波嵌入、二维涡旋初值产生声学零模的二阶机制，并区分精确恒等式、可严格化的有限时间展开与长时间激波猜想。推荐先证明可检验的有效声学动力学及误差定理。
+\end{abstract}
+\tableofcontents
+\input{analysis}
+\input{literature}
+\input{program}
+\input{references}
+\end{document}
